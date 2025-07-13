@@ -8,8 +8,8 @@ Car.prototype.getMakeModel = function() {
 };
 
 function SportsCar(make, model, topSpeed) {
-  // Call Car constructor with make and model
-  Car.call(this, make, model); // inheritance of properties
+
+  Car.call(this, make, model);
   this.topSpeed = topSpeed;
 }
 
