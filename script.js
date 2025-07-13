@@ -1,26 +1,28 @@
-// Complete the js code
 function Car(make, model) {
-	constructor(make,model){
-	this.make=make;
-	this.modal=model;
-	}
-
-	getMakeModel(){
-		return (`${this.make} ${this.model}`)
-	}
+  this.make = make;
+  this.model = model;
 }
 
-function SportsCar extends Car(make, model, topSpeed) {
-	constructor(make,model,topSpeed){
-		super(make,model)
-		this.topSpeed=topSpeed;
-	}
+Car.prototype.getMakeModel = function() {
+  return `${this.make} ${this.model}`;
+};
 
-	getTopSpeed(){
-		return (this.topSpeed)
-	}
+function SportsCar(make, model, topSpeed) {
+  // Call Car constructor with make and model
+  Car.call(this, make, model); // inheritance of properties
+  this.topSpeed = topSpeed;
 }
 
-// Do not change the code below
+
+SportsCar.prototype = Object.create(Car.prototype);
+
+SportsCar.prototype.constructor = SportsCar;
+
+
+SportsCar.prototype.getTopSpeed = function() {
+  return this.topSpeed;
+};
+
+
 window.Car = Car;
 window.SportsCar = SportsCar;
